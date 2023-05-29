@@ -1,0 +1,62 @@
+#container {
+  width: 20%;
+  margin: auto;
+  border: 1px solid red;
+  background-color: #000000;
+}
+
+#display {
+  height: 70px;
+  border: 1px solid blue;
+  color: white;
+  font-size: 30px;
+}
+
+#btn_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+
+}
+
+#btn_container>div {
+  /* border: 1px solid; */
+  border-radius: 60%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sym {
+  background-color: #a5a5a5;
+  font-style: bold;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.yellow {
+  background-color: #fea00a;
+  color: white;
+  font-style: bold;
+  font-size: 22px;
+}
+
+.shade {
+  background-color: #333333;
+  color: white;
+  font-style: bold;
+  font-size: 22px;
+}
+
+/* #spl{
+  width: 120%;
+}
+
+#right{
+  position: relative;
+  right: 50;
+  margin-left: 20%;
+} */
