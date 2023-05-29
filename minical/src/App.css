@@ -20,6 +20,13 @@
 
 }
 
+#dis{
+  border: 1px solid red;
+  height: 50px;
+  color: white;
+  font-size: 23px;
+}
+
 #btn_container>div {
   /* border: 1px solid; */
   border-radius: 60%;

@@ -4,50 +4,55 @@ export const Calculator = () => {
     // const [display,setDisplay]=useState("")
 
     const [result, setResult] = useState(0)
-    const [status, setStatus] = useState(false)
-    // let [str, setStr] = useState("")
-    const [his,setHistory]=useState("")
-    let bag = ""
-    let history=  []
+    const [status, setStatus] = useState(true)
+    const [his, setHistory] = useState("")
 
+    // let [dis, setDis] = useState([])
+    var bag = ""
+    let history = []
+    // let resq = ""
     const handleClick = (text) => {
-        let local=[]
         bag += text
-        // setStr(bag)
-        history.push(local[local.length-1])
-        console.log(bag)
-        setStatus(false)
+        // resq += text
+        history.push(bag)
+        console.log(history)
+        // setDis([...dis, bag])
     }
 
     const handleEval = () => {
-
-        // setStr(bag)
         setStatus(true)
         console.log(eval(bag))
         setResult(eval(bag))
-        console.log(history)
-        // localStorage.setItem("history",json.strignify(history))
-        // localStorage.setItem('history', JSON.stringify(history[history.length-1]));
+        // console.log(history)
+        localStorage.setItem("history", JSON.stringify(history))
     }
 
-    const handleHistory=()=>{
-        setHistory(history[history.length-1])
-        console.log(his)
+    const handleHistory = () => {
+        let hist = JSON.parse(localStorage.getItem("history"))
+        console.log(hist)
+        setHistory(hist)
+    }
+
+    const handleClear = () => {
+        setStatus(false)
+        setResult(0)
     }
 
     return (
         <div>
             <div id="container">
-                <button id="history" onClick={()=>{handleHistory()}}>
+                <button id="history" onClick={() => { handleHistory() }}>
                     History
                 </button>
                 <div id="display">
-                    {status ? result : bag}
-                    {/* {bag ? bag: result} */}
-                    {/* {result} */}
+                    {his}
+
+                </div>
+                <div id="dis">
+                    {status ? result : his}
                 </div>
                 <div id="btn_container">
-                    <div className='sym' onClick={(e) => handleClick(e.currentTarget.textContent)}>C</div>
+                    <div className='sym' onClick={() => handleClear()}>C</div>
                     <div className='sym' onClick={(e) => handleClick(e.currentTarget.textContent)}>+/-</div>
                     <div className='sym' onClick={(e) => handleClick(e.currentTarget.textContent)}>%</div>
                     <div className='yellow' onClick={(e) => handleClick(e.currentTarget.textContent)}>÷</div>
